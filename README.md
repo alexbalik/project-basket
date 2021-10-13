@@ -1,2 +1,2 @@
-# project-basket
+# projects-basket
 Personal projects.
