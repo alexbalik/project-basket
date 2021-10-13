@@ -32,8 +32,7 @@ def nonzero_min(from_column):
 
     print("Final", min_var)
     return(min_var)
-    return(from_column.index(min_var))
-
+    
 
 nonzero_min(column1)
     
