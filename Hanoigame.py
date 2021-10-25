@@ -8,7 +8,7 @@
 #the algorithm that beats the game.
 
 #The game will be set up with three column vectors representing each prong,
-#with integers elements in the vectors representing the game pieces.
+#with integer elements in the vectors representing the game pieces.
 
 
 from numpy import zeros
