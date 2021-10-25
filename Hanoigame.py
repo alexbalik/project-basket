@@ -37,16 +37,16 @@ def updateBoard(move_from): #user specifies which column he/she is taking an ele
     move_from = int(input("Move from which column? Enter an integer: 1, 2, or 3:"))
 
     if move_from == 1: #if user specifies column1. Now user can either move the top element
-                       #element to column 2 or 3
-        #now we only worry about column1
+                       #to column 2 or 3
+        
         move_to = int(input("Move to which column? Enter an integer: 1, 2, or 3:"))
         #^ask user which column to move to
-        minvar_global = nonzero_min(column1) # calling function that returns min_var of column1
-                                             #(i.e. the top element).
+        minvar_global = nonzero_min(column1) #calling function that returns the smallest
+                                             #non-zero integer of a column.
 
         if move_to == 2:
             top_ele = min_index(column2) #calling function that returns top non-zero element of
-                                         #specified column
+                                         #specified column.
             
             if minvar_global < top_ele #if true, then user made a legal move
                 #next, need the index value of element in column 2, so that
