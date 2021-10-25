@@ -7,7 +7,7 @@
 #of each move so the user can see emerging patterns, and discover
 #the algorithm that beats the game.
 
-#The game will be set up with  three column vectors representing each prong,
+#The game will be set up with three column vectors representing each prong,
 #with integers elements in the vectors representing the game pieces.
 
 
