@@ -14,11 +14,11 @@
 from numpy import zeros
 import numpy as np
 
-column1 = zeros([8,1], int) #8x1 vectors with all zeros
+column1 = zeros([8,1], int) #8x1 vector with all zeros
 
-column2 = zeros([8,1], int) #8x1 vectors with all zeros
+column2 = zeros([8,1], int) #8x1 vector with all zeros
 
-column3 = zeros([8,1], int) #8x1 vectors with all zeros
+column3 = zeros([8,1], int) #8x1 vector with all zeros
 
 
 # replaced column1 zeros with the numbers 1-8.
@@ -40,28 +40,7 @@ column1[7] = 8
 #---------------------------------------------------------------------------------------------------
 #user-defined functions:
 
-#the below function takes the first element of the array as the minimum variable
-#and compares with other "test elements" of the array. if the test
-#element is smaller it takes over as the new minimum variable
-def nonzero_min(from_column):
-    min_var = from_column[0] #take the first element of the array
-    column_length = len(from_column)
-    for index in range(1, column_length): #start from 1 to length1, not 0 to length1
-                                          #because otherwise, with the definition of test_ele below,
-                                          #we'd be comparing minVar with itself (i.e. min_var = test_ele
-                                          #for every iteration.
-        test_ele = from_column[index]
-        if min_var < test_ele and min_var !=0: #if min_var is less than and non-zero, keep as min_var
-            min_var = min_var
-        elif test_ele !=0: #if not, and test_ele is non-zero, make test_ele new minVar
-            min_var = test_ele
-        
-    return(min_var)
-    return(from_column.index(min_var))
-
-
-
-#find lowest index value of a column that is non-zero
+#find top non-zero element in a given column.
 def min_index (target_column):
     target_length = len(target_column)
     #we want to look at the range of target column index values
@@ -269,13 +248,12 @@ print(np.c_[column1, column2, column3])
 movelist = []
 
 for turn in iter(int,1): #iter() keeps iterating until int() returns a value of 1. But int() always returns 0,
-                         #so this loop will go on forever.
+    print(movelist)                  #so this loop will go on forever.
     x = int(input("Move from which column? Enter an integer: 1, 2, or 3:"))
     y = int(input("Move to which column? Enter an integer: 1, 2, or 3:"))
-    update_board(x, y)
-    movelist.append([x,y])
-    print(movelist)
-    if column3[0] == 1:
-        break #the game will only end when column3 is filled. The constraints are such that a column will be
-              #filled if and only if 1 is at the 0th index.
+    movelist.append((x,y))
+    if update_board(x, y):
+        if column3[0] == 1:
+            break #the game will only end when column3 is filled. The constraints are such that a column will be
+              #filled if and only if 1 is at the 0th index of that column.
 print("Congratulations, you won the game!")
