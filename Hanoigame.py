@@ -83,48 +83,49 @@ def update_board(move_from, move_to): #user specifies origin and target columns
             index1 = indexof(minvar_global, column1)
             index2 = indexof(top_ele, column2) #returns index value of a given element within specified column.
 
-            if top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
+            if minvar_global == 0:
+                return(False)
+
+            elif top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
                 column2[7] = minvar_global
                 column1[index1] = 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded."))
+                return(True)
             
             elif minvar_global < top_ele: #if true, then user made a legal move
                 #next, take the index value of the top element, and place
                 #minvar_global one index value below (i.e. on top of) top_ele
                 column2[index2 - 1] = minvar_global #place minvar_global in column 2
                 column1[index1] = 0 #fill in blank space in column1 with a 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded"))
+                return(True)
 
 
             elif minvar_global > top_ele: #if true, user made illegal move
-                print(np.c_[column1, column2, column3])
-                return(print("Sorry, you have made an illegal move."))
+                return(False)
+                
 
         elif move_to == 3:
             top_ele = min_index(column3) #calling function that returns top non-zero element of specified column.
             index1 = indexof(minvar_global, column1)
             index3 = indexof(top_ele, column3) #returns index value of a given element within specified column.
             
-            if top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
+            if minvar_global == 0:
+                return(False)
+
+            elif top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
                 column3[7] = minvar_global
                 column1[index1] = 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded."))
+                return(True)
             
             elif minvar_global < top_ele: #if true, then user made a legal move
                 #next, take the index value of the top element, and place
                 #minvar_global one index value below (i.e. on top of) top_ele
                 column3[index3 - 1] = minvar_global #place minvar_global in column 2
                 column1[index1] = 0 #fill in blank space in column1 with a 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded"))
+                return(True)
 
 
             elif minvar_global > top_ele: #if true, user made illegal move
-                print(np.c_[column1, column2, column3])
-                return(print("Sorry, you have made an illegal move."))
+                return(False)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     if move_from == 2: #if user specifies column1. Now user can either move the top element
@@ -138,49 +139,48 @@ def update_board(move_from, move_to): #user specifies origin and target columns
             index2 = indexof(minvar_global, column2)
             index1 = indexof(top_ele, column1) #returns index value of a given element within specified column.
             
-            if top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
+            if minvar_global == 0:
+                return(False)
+
+            elif top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
                 column1[7] = minvar_global
                 column2[index2] = 0
                 print(index2)
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded."))
+                return(True)
             
             elif minvar_global < top_ele: #if true, then user made a legal move
                 #next, take the index value of the top element, and place
                 #minvar_global one index value below (i.e. on top of) top_ele
                 column1[index1 - 1] = minvar_global #place minvar_global in column 2
                 column2[index2] = 0 #fill in blank space in column1 with a 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded"))
+                return(True)
 
 
             elif minvar_global > top_ele: #if true, user made illegal move
-                print(np.c_[column1, column2, column3])
-                return(print("Sorry, you have made an illegal move."))
+                return(False)
 
         elif move_to == 3:
             top_ele = min_index(column3) #calling function that returns top non-zero element of specified column.
             index2 = indexof(minvar_global, column2)
             index3 = indexof(top_ele, column3) #returns index value of a given element within specified column.
             
-            if top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
+            if minvar_global == 0:
+                return(False)
+
+            elif top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
                 column3[7] = minvar_global
                 column2[index2] = 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded."))
+                return(True)
             
             elif minvar_global < top_ele: #if true, then user made a legal move
                 #next, take the index value of the top element, and place
                 #minvar_global one index value below (i.e. on top of) top_ele
                 column3[index3 - 1] = minvar_global #place minvar_global in column 2
                 column2[index2] = 0 #fill in blank space in column1 with a 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded"))
-
+                return(True)
 
             elif minvar_global > top_ele: #if true, user made illegal move
-                print(np.c_[column1, column2, column3])
-                return(print("Sorry, you have made an illegal move."))
+                return(False)
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     if move_from == 3: #if user specifies column1. Now user can either move the top element
                        #to column 2 or 3
@@ -193,48 +193,48 @@ def update_board(move_from, move_to): #user specifies origin and target columns
             index3 = indexof(minvar_global, column3)
             index1 = indexof(top_ele, column1) #returns index value of a given element within specified column.
             
-            if top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
+            if minvar_global == 0:
+                return(False)
+
+            elif top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
                 column1[7] = minvar_global
                 column3[index3] = 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded."))
+                return(True)
             
             elif minvar_global < top_ele: #if true, then user made a legal move
                 #next, take the index value of the top element, and place
                 #minvar_global one index value below (i.e. on top of) top_ele
                 column1[index1 - 1] = minvar_global #place minvar_global in column 2
                 column3[index3] = 0 #fill in blank space in column1 with a 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded"))
+                return(True)
 
 
             elif minvar_global > top_ele: #if true, user made illegal move
-                print(np.c_[column1, column2, column3])
-                return(print("Sorry, you have made an illegal move."))
+                return(False)
 
         elif move_to == 2:
             top_ele = min_index(column2) #calling function that returns top non-zero element of specified column.
             index3 = indexof(minvar_global, column3)
             index2 = indexof(top_ele, column2) #returns index value of a given element within specified column.
             
-            if top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
+            if minvar_global == 0:
+                return(False)
+
+            elif top_ele == 0:#if top_ele = 0, put the element at the bottom of the array/prong
                 column2[7] = minvar_global
                 column3[index3] = 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded."))
+                return(True)
             
             elif minvar_global < top_ele: #if true, then user made a legal move
                 #next, take the index value of the top element, and place
                 #minvar_global one index value below (i.e. on top of) top_ele
                 column2[index2 - 1] = minvar_global #place minvar_global in column 2
                 column3[index3] = 0 #fill in blank space in column1 with a 0
-                print(np.c_[column1, column2, column3])
-                return(print("Your move has been recorded"))
+                return(True)
 
 
             elif minvar_global > top_ele: #if true, user made illegal move
-                print(np.c_[column1, column2, column3])
-                return(print("Sorry, you have made an illegal move."))
+                return(False)
 #End of user-defined function
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -248,12 +248,21 @@ print(np.c_[column1, column2, column3])
 movelist = []
 
 for turn in iter(int,1): #iter() keeps iterating until int() returns a value of 1. But int() always returns 0,
-    print(movelist)                  #so this loop will go on forever.
+                         #so this loop will go on forever.
     x = int(input("Move from which column? Enter an integer: 1, 2, or 3:"))
     y = int(input("Move to which column? Enter an integer: 1, 2, or 3:"))
-    movelist.append((x,y))
     if update_board(x, y):
+        movelist.append((x,y))
+        print('')
+        print("Move recorded")
+        print(np.c_[column1, column2, column3])
+        print(movelist)
         if column3[0] == 1:
             break #the game will only end when column3 is filled. The constraints are such that a column will be
-              #filled if and only if 1 is at the 0th index of that column.
+                  #filled if and only if 1 is at the 0th index of that column.
+    else:
+        print('')
+        print("You have made an illegal move")
+        print(np.c_[column1, column2, column3])
+        print(movelist)
 print("Congratulations, you won the game!")
