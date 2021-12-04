@@ -43,9 +43,6 @@ full_training = n_5ft[['a_HT', 'a_KD', 'a_body_stra', 'a_body_strl', 'a_clinch_s
 
 outcomes = n_5ft[['a_outcome']]
 
-#have a loop that iterates through a list of the columns. in the loop re-establish the dataframe
-#using the list of columns. have a "reset full training" dataframe  outside the loop so that you 
-#can have it refresh every loop
 
 counter = 0 #to label what number iteration in the terminal (should be 62 iterations since there's 62 columns)
 col_list = list(full_training)
@@ -55,9 +52,6 @@ for column in col_list:
     copy_col_list.remove(column)
     copy_full_training = n_5ft[copy_col_list]#take out the iterated element using updated column list
 
-
-
-    
     for stat in list(copy_full_training):
         copy_full_training['{0}'.format(stat)] =  copy_full_training['{0}'.format(stat)].fillna(0)
     copy_full_training = copy_full_training.replace([np.inf, -np.inf], 0)
@@ -78,8 +72,6 @@ for column in col_list:
 
     counter += 1
     cprint(counter, 'blue', attrs = ['bold'])
-
-
     cprint('Without', 'green', attrs = ['bold'], end = ' ')
     cprint(column, 'red', attrs = ['bold'], end = '')
     cprint(':', 'green', attrs = ['bold'], end = ' ')
